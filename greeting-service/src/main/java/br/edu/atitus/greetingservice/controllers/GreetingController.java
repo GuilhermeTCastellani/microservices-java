@@ -25,7 +25,7 @@ public class GreetingController {
     }
 
     @GetMapping("/{name}")
-    public String getGreetingByPath(@PathVariable String name) {
+    public String getGreetingPath(@PathVariable String name) {
         return String.format("%s, %s!!!", config.getGreeting(), name);
     }
 
