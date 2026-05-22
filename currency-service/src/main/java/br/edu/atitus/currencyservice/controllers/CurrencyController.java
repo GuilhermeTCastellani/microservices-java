@@ -1,6 +1,6 @@
 package br.edu.atitus.currencyservice.controllers;
 
-import br.edu.atitus.currencyservice.clients.BCBClient;
+import br.edu.atitus.currencyservice.clients.BCBClientService;
 import br.edu.atitus.currencyservice.clients.BCBResponse;
 import br.edu.atitus.currencyservice.dtos.CurrencyDTO;
 import br.edu.atitus.currencyservice.entities.CurrencyEntity;
@@ -12,13 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.sql.DataSource;
-
 @RestController
 @RequestMapping("currency")
 public class CurrencyController {
     private final CurrencyRepository repository;
-    private final BCBClient bcbClient;
+    private final BCBClientService bcbClientService;
 
     @Value("${server.port}")
     private String port;
@@ -26,10 +24,9 @@ public class CurrencyController {
     @Value("${convert.sleep:0}")
     private int sleep;
 
-
-    public CurrencyController(CurrencyRepository repository, DataSource dataSource, BCBClient bcbClient) {
+    public CurrencyController(CurrencyRepository repository, BCBClientService bcbClientService) {
         this.repository = repository;
-        this.bcbClient = bcbClient;
+        this.bcbClientService = bcbClientService;
     }
 
     @GetMapping("/convert")
@@ -40,11 +37,11 @@ public class CurrencyController {
         source = source.toUpperCase();
         target = target.toUpperCase();
 
-
         String dataSource = "NONE";
         CurrencyEntity currency = new CurrencyEntity();
         currency.setSourceCurrency(source);
         currency.setTargetCurrency(target);
+
         if (source.equals(target)) {
             currency.setConversionRate(1.0);
         } else {
@@ -52,12 +49,12 @@ public class CurrencyController {
                 Double sourceRate = 1.0;
                 Double targetRate = 1.0;
                 if (!source.equals("BRL")) {
-                    BCBResponse response = bcbClient.getBCBCurrency(target);
+                    BCBResponse response = bcbClientService.getBCBCurrency(target);
                     if (response.value().isEmpty()) throw new Exception("Currency not found for " + source);
                     targetRate = response.value().get(0).cotacaoVenda();
                 }
                 if (!target.equals("BRL")) {
-                    BCBResponse response = bcbClient.getBCBCurrency(source);
+                    BCBResponse response = bcbClientService.getBCBCurrency(source);
                     if (response.value().isEmpty()) throw new Exception("Currency not found for " + target);
                     sourceRate = response.value().get(0).cotacaoVenda();
                 }
@@ -70,16 +67,14 @@ public class CurrencyController {
             }
         }
 
-
         String environment = "Currency Service running on port " + port + " - " + dataSource;
         CurrencyDTO dto = new CurrencyDTO(
                 currency.getSourceCurrency(),
                 currency.getTargetCurrency(),
                 currency.getConversionRate(),
                 environment
-                );
+        );
 
         return ResponseEntity.ok(dto);
-
     }
 }
