@@ -7,9 +7,11 @@ import br.edu.atitus.productservice.entities.ProductEntity;
 import br.edu.atitus.productservice.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@EnableCaching
 @RestController
 @RequestMapping("products")
 public class ProductController {
@@ -45,7 +47,9 @@ public class ProductController {
         } else {
             String nameCache="ConvertedValue";
             String keyCache = entity.getCurrency() + " - " + targetCurrency;
-            Double convertedValue = cacheManager.getCache(nameCache).get(keyCache, Double.class);
+            //Desabilitar o Cahce para ver o Load Balanced
+            //Double convertedValue = cacheManager.getCache(nameCache).get(keyCache, Double.class);
+            Double convertedValue = null;
             if (convertedValue == null) {
                 CurrencyResponse currency = currencyClient.getCurrency(entity.getCurrency(), targetCurrency);
                 if (currency != null) {
@@ -60,10 +64,6 @@ public class ProductController {
                     convertedPrice = convertedValue * entity.getPrice();
                     environment = environment + " - Currency in cache";
             }
-
-            CurrencyResponse currency = currencyClient.getCurrency(entity.getCurrency(), targetCurrency);
-            convertedPrice = entity.getPrice() * currency.conversionRate();
-            environment = environment + " - " + currency.environment();
         }
 
         ProductDTO dto = new ProductDTO(
