@@ -36,6 +36,8 @@ public class WsProductController {
 
         var product = convertDTOtoEntity(dto);
         product.setStock(10);
+        product.setSellerId(userId);
+        product.setSellerName(userEmail);
         repository.save(product);
         return ResponseEntity.status(201).body(product);
     }
@@ -53,6 +55,8 @@ public class WsProductController {
         var product = convertDTOtoEntity(dto);
         product.setId(idProduct);
         product.setStock(10);
+        product.setSellerId(userId);
+        product.setSellerName(userEmail);
         repository.save(product);
         return ResponseEntity.ok(product);
     }

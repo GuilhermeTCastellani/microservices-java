@@ -31,6 +31,9 @@ public class OrderEntity {
     @JsonIgnore
     private Long customerId; // ID do cliente logado
 
+    @Column(name = "delivery_address")
+    private String deliveryAddress; // snapshot do endereço no momento da compra
+
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItemEntity> items;
     
@@ -62,6 +65,14 @@ public class OrderEntity {
 
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
+	}
+
+	public String getDeliveryAddress() {
+		return deliveryAddress;
+	}
+
+	public void setDeliveryAddress(String deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
 	}
 
 	public List<OrderItemEntity> getItems() {

@@ -18,6 +18,7 @@ public class GatewayConfig {
                 .route(p -> p
                         .path("/ws/orders/**")
                         .uri("lb://order-service"))
+                .route(p -> p.path("/ws/addresses/**").uri("lb://auth-service"))
                 .build();
     }
 }

@@ -40,6 +40,7 @@ public class OrderController {
 		OrderEntity order = new OrderEntity();
         order.setOrderDate(LocalDateTime.now());
         order.setCustomerId(userId);
+        order.setDeliveryAddress(orderDTO.deliveryAddress());
         
         List<OrderItemEntity> items = orderDTO.items().stream().map(dto -> {
             OrderItemEntity item = new OrderItemEntity();

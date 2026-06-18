@@ -22,7 +22,7 @@ public class ConfigSecurity {
                         // .requestMatchers("/auth*","/auth/**","/swagger-ui*", "swagger-ui/**",
                         // "/v3/api-docs/**").permitAll()
                         // .requestMatchers(HttpMethod.OPTIONS).permitAll()
-                        .requestMatchers("/ws**", "/ws/**").authenticated().anyRequest().permitAll())
+                        .anyRequest().permitAll())
         //.addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);
         ;
         return http.build();

@@ -4,6 +4,7 @@ public record ProductInDTO(
         String description,
         String brand,
         String model,
+        String category,
         String currency,
         Double price,
         String imageURL
