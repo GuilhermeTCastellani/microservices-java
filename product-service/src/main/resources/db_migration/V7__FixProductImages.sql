@@ -1,0 +1,36 @@
+-- Corrige as imagens das pecas: troca loremflickr (foto aleatoria por palavra-chave)
+-- por fotos reais e relevantes do Wikimedia Commons (URL estavel, licenca livre).
+-- Aplica no banco JA populado pelo V6 (UPDATE por descricao), sem perder dados.
+
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Garrett_Turbolader.jpg/960px-Garrett_Turbolader.jpg' WHERE description = 'Turbina Garrett GTX3582R Gen II';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Turbocharger.jpg/960px-Turbocharger.jpg' WHERE description = 'Turbina BorgWarner EFR 7670';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Turbo-p1020670.jpg/960px-Turbo-p1020670.jpg' WHERE description = 'Turbina Master Power R474 Roller';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Turbo_for_1.6TDI.jpg/960px-Turbo_for_1.6TDI.jpg' WHERE description = 'Turbina Garrett G25-660';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/N%C3%BCral_piston_H268X_-3985.jpg/960px-N%C3%BCral_piston_H268X_-3985.jpg' WHERE description = 'Pistão Forjado Mahle Motorsport (jogo 4)';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/N%C3%BCral_piston_H268X_-3980.jpg/960px-N%C3%BCral_piston_H268X_-3980.jpg' WHERE description = 'Pistão Forjado JE Pistons SRP (jogo 4)';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/1-_nockenwelle.jpg/960px-1-_nockenwelle.jpg' WHERE description = 'Comando de Válvulas SPA 280°';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/ForgedConrodShowingEtchedSection-s.jpg/960px-ForgedConrodShowingEtchedSection-s.jpg' WHERE description = 'Biela Forjada Eagle H-Beam (jogo 4)';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/XK_engine_inlet_camshaft_bearing_caps_with_shells-0736.jpg/960px-XK_engine_inlet_camshaft_bearing_caps_with_shells-0736.jpg' WHERE description = 'Bronzina de Biela Mahle STD';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Head_gasket.jpg/960px-Head_gasket.jpg' WHERE description = 'Junta de Cabeçote Cometic MLS';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Nota-203-1_flywheel_03.jpg/960px-Nota-203-1_flywheel_03.jpg' WHERE description = 'Volante Motor Billet Aço Cromo';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/06A906036F_Noozle_of_Fuel_Injector.jpg/960px-06A906036F_Noozle_of_Fuel_Injector.jpg' WHERE description = 'Bico Injetor Bosch 1000cc (jogo 4)';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Bosch_Fuel_Pump_0_580_254_957_-_opened-7456.jpg/960px-Bosch_Fuel_Pump_0_580_254_957_-_opened-7456.jpg' WHERE description = 'Bomba de Combustível Walbro 460lph';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Top_mount_intercooler.jpg/960px-Top_mount_intercooler.jpg' WHERE description = 'Intercooler Air-to-Air 600x300x76';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/EF7_Engine_intake_manifold.jpg/960px-EF7_Engine_intake_manifold.jpg' WHERE description = 'Coletor de Admissão Race Billet';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Ducati_Panigale_Shock_absorber_rear.jpg/960px-Ducati_Panigale_Shock_absorber_rear.jpg' WHERE description = 'Amortecedor Esportivo Cofap Turbo Gás (par)';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Coilovers.jpg/960px-Coilovers.jpg' WHERE description = 'Kit Coilover Bilstein B14 PSS';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Compression_springs_for_trucks.jpg/960px-Compression_springs_for_trucks.jpg' WHERE description = 'Mola Esportiva Eibach Pro-Kit';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Disk_brake_dsc03682.jpg/960px-Disk_brake_dsc03682.jpg' WHERE description = 'Kit Big Brake Brembo GT 4-pistões';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Brake_pads.JPG/960px-Brake_pads.JPG' WHERE description = 'Pastilha de Freio Cerâmica HiPa';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Hamulec_tarczowy.jpg/960px-Hamulec_tarczowy.jpg' WHERE description = 'Disco de Freio Ventilado Fremax';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Akrapovic_Slip-On_exhaust_system_for_BMW_E92_M3.jpg/960px-Akrapovic_Slip-On_exhaust_system_for_BMW_E92_M3.jpg' WHERE description = 'Escapamento Inox Full 3 polegadas';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Clutch_disc.JPG/960px-Clutch_disc.JPG' WHERE description = 'Embreagem Multidisco Cerâmica';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Honeycomb_radiator_tubes.jpg/960px-Honeycomb_radiator_tubes.jpg' WHERE description = 'Radiador de Alumínio Race 3 Fileiras';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Engine_spark_plugs.jpg/960px-Engine_spark_plugs.jpg' WHERE description = 'Vela de Ignição NGK Iridium IX (jogo 4)';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Car_battery.jpg/960px-Car_battery.jpg' WHERE description = 'Bateria 60Ah Heliar Free';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/ECU_and_wire_bundles.JPG/960px-ECU_and_wire_bundles.JPG' WHERE description = 'FuelTech FT550 Injeção Programável';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Rover_MEMS_1.6_ECU.jpg/960px-Rover_MEMS_1.6_ECU.jpg' WHERE description = 'FuelTech FT450 Injeção Programável';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/ECU_Wires.JPG/960px-ECU_Wires.JPG' WHERE description = 'FuelTech FT600 Injeção e Ignição';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Audi_electric_motor_control%2C_Paris_Motor_Show_2018%2C_Paris_%281Y7A1113%29.jpg/960px-Audi_electric_motor_control%2C_Paris_Motor_Show_2018%2C_Paris_%281Y7A1113%29.jpg' WHERE description = 'FuelTech Racepro 600 Standalone';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Close-up_of_engine_oil_temperature_gauge_on_car_dashboard_%2849006320293%29.jpg/960px-Close-up_of_engine_oil_temperature_gauge_on_car_dashboard_%2849006320293%29.jpg' WHERE description = 'FuelTech Dash 5.0 Display Digital';
+UPDATE tb_product SET image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Lambda_sond_till_volvo240_etc.jpg/960px-Lambda_sond_till_volvo240_etc.jpg' WHERE description = 'Sonda Wideband Nano O2 Banda Larga';
